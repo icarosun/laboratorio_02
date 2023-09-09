@@ -15,9 +15,18 @@ const alternativeTexts = ["Ada Lovelace", "John von Neumann", "Alan Turing", "Ma
 // Looping through images 
 for(let i = 0; i < 5; i++) {
     const newImage = document.createElement("img");
+    
     newImage.setAttribute("src", "./assets/imgs/" + images[i]);
     newImage.setAttribute("alt", alternativeTexts[i]);
+    
+    newImage.addEventListener("click", changeMainImage);
+
     thumbBar.appendChild(newImage);    
+}
+
+function changeMainImage(e) {
+    displayedImage.src = e.target.src;
+    displayedImage.alt = e.target.alt;
 }
 
 // Wiring up the Darkn/Lighten button
